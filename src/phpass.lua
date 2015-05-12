@@ -57,6 +57,10 @@ return function()
         return md5object:final(data, raw)
     end
 
+    local function randomBytes(number)
+        return require("crypto").rand.bytes(number)
+    end
+
     function phpass.cryptPrivate(pw, setting)
         local outp = startsWith(setting, '*0')
             and '*1' or '*0'
@@ -86,5 +90,21 @@ return function()
         local hx = phpass.cryptPrivate(pw, stored_hash)
         return hx == stored_hash
     end
+
+    local function gensaltPrivate(count_log2)
+        if not count_log2 then
+            count_log2 = 8
+        end
+        local count_code = itoa64(math.min(count_log2 + 5, 30))
+        local format = '$P$%s%s'
+        local salt = encode64(randomBytes(6))
+        return format:format(count_code, salt)
+    end
+
+    function phpass.hashPassword(pw, count_log2)
+        local setting = gensaltPrivate(count_log2)
+        return phpass.cryptPrivate(pw, setting)
+    end
+
     return phpass
 end

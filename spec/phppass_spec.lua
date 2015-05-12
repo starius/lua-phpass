@@ -13,4 +13,10 @@ describe("phpass", function()
         assert.falsy(phpass.checkPassword('test12345',
             '$P$9IQRaTwmfeRo7ud9Fh4E2PdI0S3r.L1'))
     end)
+
+    it("generates hash for password test12345", function()
+        local phpass = require('phpass')()
+        local hash = phpass.hashPassword('test12345')
+        assert.truthy(phpass.checkPassword('test12345', hash))
+    end)
 end)

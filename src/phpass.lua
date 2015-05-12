@@ -92,9 +92,9 @@ end
 
 local function gensaltPrivate(count_log2)
     if not count_log2 then
-        count_log2 = 8
+        count_log2 = 16
     end
-    local count_code = itoa64(math.min(count_log2 + 5, 30))
+    local count_code = itoa64(count_log2)
     local format = '$P$%s%s'
     local salt = encode64(randomBytes(6))
     return format:format(count_code, salt)

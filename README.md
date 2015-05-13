@@ -36,8 +36,8 @@ phpass.checkPassword('other password', hash) --> false
 
 ## Notes
 
-The algorithm uses salt, that is why `phpass.hashPassword`
-is not deterministic.
+The algorithm used in `phpass.hashPassword` generates random
+salt, so this function returns different hashes for a password.
 
 `phpass.hashPassword` has second argument, `count_log2`,
 which is `log2` of number of iterations. The algorithm of

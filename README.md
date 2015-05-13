@@ -47,7 +47,7 @@ index 48364d1..e5a62c4 100644
          buf = (unsigned char *)malloc(count);
 ```
 
-I have applied this patch to [my form of LuaCrypto][my-lcrypt].
+I have applied this patch to [my fork of LuaCrypto][my-lcrypt].
 There is also [the modified version][my-rockspec] of rockspec
 for version 0.3.2, which installs modified LuaCrypto.
 

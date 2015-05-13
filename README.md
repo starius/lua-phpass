@@ -27,8 +27,29 @@ $ luarocks install phpass
 
 [LuaCrypto][luacrypto]
 
-The code was tested against Lua 5.1, 5.2 and LuaJIT 2.0, 2.1.
-LuaCrypto [fails][53-fail] to build against Lua 5.3.
+The code was tested against Lua 5.1, 5.2, 5.3 and LuaJIT 2.0,
+2.1. LuaCrypto for Lua 5.3 requires [the following
+patch][5.3-patch]:
+
+```patch
+diff --git a/src/lcrypto.c b/src/lcrypto.c
+index 48364d1..e5a62c4 100644
+--- a/src/lcrypto.c
++++ b/src/lcrypto.c
+@@ -968,7 +968,7 @@ static int verify_fverify(lua_State *L)
+ 
+ static int rand_do_bytes(lua_State *L, int (*bytes)(unsigned char *, int))
+ {
+-    size_t count = (size_t)luaL_checkint(L, 1);
++    size_t count = (size_t)luaL_checkinteger(L, 1);
+     unsigned char tmp[256], *buf = tmp;
+     if (count > sizeof tmp)
+         buf = (unsigned char *)malloc(count);
+```
+
+I have applied this patch to [my form of LuaCrypto][my-lcrypt].
+There is also [the modified version][my-rockspec] of rockspec
+for version 0.3.2, which installs modified LuaCrypto.
 
 ## Usage
 
@@ -75,7 +96,9 @@ See the [LICENSE][license-page] file for terms of use.
 
 [phpass]: http://www.openwall.com/phpass/
 [luacrypto]: https://github.com/mkottman/luacrypto
-[53-fail]: https://travis-ci.org/starius/lua-phpass/jobs/62325591#L747
+[5.3-patch]: http://lua.2524044.n2.nabble.com/ANN-phpass-password-hashing-for-Lua-tp7667347p7667348.html
+[my-lcrypt]: https://github.com/starius/luacrypto
+[my-rockspec]: https://gist.githubusercontent.com/starius/b20d3e63929ae678c857/raw/4b4499f442337b6f577422364358590bd00c9d48/luacrypto-0.3.2-2.rockspec
 [wordpress]: http://ryan.boren.me/2007/12/17/secure-cookies-and-passwords/
 [bbPress]: https://bbpress.org/
 [Vanilla]: http://vanillaforums.org/

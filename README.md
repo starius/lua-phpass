@@ -13,6 +13,13 @@ DES-based hashes are not supported.
 $ luarocks install phpass
 ```
 
+## Dependencies
+
+[LuaCrypto][luacrypto]
+
+The code was tested against Lua 5.1, 5.2 and LuaJIT 2.0, 2.1.
+LuaCrypto [fails][53-fail] to build against Lua 5.3.
+
 ## Usage
 
 ```lua
@@ -54,4 +61,6 @@ Copyright (C) 2015 Boris Nagaev
 See the [LICENSE][LICENSE] file for terms of use.
 
 [phpass]: http://www.openwall.com/phpass/
+[luacrypto]: https://github.com/mkottman/luacrypto
+[53-fail]: https://travis-ci.org/starius/lua-phpass/jobs/62325591#L747
 [LICENSE]: LICENSE

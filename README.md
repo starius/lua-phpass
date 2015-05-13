@@ -1,5 +1,9 @@
 # lua-phpass, Lua implementation of the portable PHP password hashing framework
 
+[![Travis build][travis-badge]][travis-page]
+[![Coverage Status][coveralls-badge]][coveralls-page]
+[![License][license-badge]][license-page]
+
 [phpass][phpass] (pronounced "pH pass") is a portable public
 domain password hashing framework for use in PHP applications.
 
@@ -58,9 +62,14 @@ Corresponding author: Boris Nagaev, email: bnagaev@gmail.com
 
 Copyright (C) 2015 Boris Nagaev
 
-See the [LICENSE][LICENSE] file for terms of use.
+See the [LICENSE][license-page] file for terms of use.
 
 [phpass]: http://www.openwall.com/phpass/
 [luacrypto]: https://github.com/mkottman/luacrypto
 [53-fail]: https://travis-ci.org/starius/lua-phpass/jobs/62325591#L747
-[LICENSE]: LICENSE
+[travis-page]: https://travis-ci.org/starius/phpass
+[travis-badge]: https://travis-ci.org/starius/phpass.png
+[coveralls-page]: https://coveralls.io/r/starius/phpass
+[coveralls-badge]: https://coveralls.io/repos/starius/phpass/badge.png
+[license-page]: LICENSE
+[license-badge]: http://img.shields.io/badge/License-MIT-brightgreen.png

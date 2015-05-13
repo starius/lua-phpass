@@ -67,9 +67,9 @@ See the [LICENSE][license-page] file for terms of use.
 [phpass]: http://www.openwall.com/phpass/
 [luacrypto]: https://github.com/mkottman/luacrypto
 [53-fail]: https://travis-ci.org/starius/lua-phpass/jobs/62325591#L747
-[travis-page]: https://travis-ci.org/starius/phpass
-[travis-badge]: https://travis-ci.org/starius/phpass.png
-[coveralls-page]: https://coveralls.io/r/starius/phpass
-[coveralls-badge]: https://coveralls.io/repos/starius/phpass/badge.png
+[travis-page]: https://travis-ci.org/starius/lua-phpass
+[travis-badge]: https://travis-ci.org/starius/lua-phpass.png
+[coveralls-page]: https://coveralls.io/r/starius/lua-phpass
+[coveralls-badge]: https://coveralls.io/repos/starius/lua-phpass/badge.png
 [license-page]: LICENSE
 [license-badge]: http://img.shields.io/badge/License-MIT-brightgreen.png
